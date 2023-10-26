@@ -40,6 +40,8 @@
     .profile-edit{
         line-height: 1px;
         font-weight: normal;
+        color: white;
+        
     }
     .block-right{
         height: 100px;
@@ -83,4 +85,5 @@
         }
 body{
     background-color: black;
+    background-image: url(https://wallpaperaccess.com/full/156588.jpg);
 }
