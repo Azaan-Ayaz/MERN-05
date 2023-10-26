@@ -43,10 +43,12 @@
     }
     .block-right{
         height: 100px;
-        width: 25%;
+        width: 56%;
         border: solid 2px gainsboro;
         opacity: 1;
         border-radius: 10px;
+        margin-left: 3%;
+        
     }
     .h1-heading-inline
     {
@@ -73,10 +75,12 @@
             margin-left: 10px;
             display: inline-block;
             vertical-align: middle;
+            margin-top: 25px;
         }
         .description-cu{
             margin-top: 80px !important;
 
         }
-
-        }
+body{
+    background-color: black;
+}
