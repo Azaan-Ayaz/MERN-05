@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    let num = [12,55,19,80];
+	let sumz = 0;
+    for(let i=0; i<num.length; i++){
+        sumz += num[i];
+    }
+console.log(sumz)
+
+    // ForEach Loop //
+    num.forEach((Element)=>{
+        console.log(Element*Element)
+    })
+
+    let a = [3,4,5]
+     a.forEach ((a)=>{
+        console.log(a*a)
+    })
+
+    let name = "Azaan"
+    let arr = Array.from(name)
+    console.log(arr)
+
+    //For...of
+
+    for (let item of num){
+        console.log(item )
+    }
+
+     //For...in
+
+     for (let i in num){
+        console.log(i)
+    }
+
+    function Sum(Array) {
+        let sum = 0;
+        for (let x of arr)
+        sum += x ;
+    return sum;
+    console.log(x)
+    }
+	
+	let myNums = [1, 2, 3, 4, 5];
+
+// create a variable for the sum and initialize it
+let sum = 0;
+
+// iterate over each item in the array
+for (let i = 0; i < myNums.length; i++ ) {
+  sum += myNums[i];
+}
+
+console.log(sum) 
+</script>
+<body>
+    
+</body>
+</html>
