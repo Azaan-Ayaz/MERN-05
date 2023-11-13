@@ -1,0 +1,78 @@
+//************************************* Main.jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+//import App from './App.jsx'
+import './index.css'
+import {RouterProvider } from 'react-router-dom'
+//import {router} from "./Route/router.jsx"
+import router from './Route/router'
+
+
+
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <RouterProvider router={router}/>
+  </React.StrictMode>,
+)
+
+
+
+/// **************************************** Router/router.jsx
+
+import { createBrowserRouter } from "react-router-dom";
+import Home  from "../Pages/Home";
+import  About  from "../Pages/About"
+import Careers from "../Pages/Careers"
+
+const router = createBrowserRouter([
+    {
+        path: "./",
+        element: <Home/>
+    },
+    {
+        path: "./about",
+        element: <About/>
+    },
+    {
+        path:"./career",
+        element: <Careers/>
+    }
+])
+
+export default router;
+
+
+//**************************** Navber/navbar.jsx
+import { Link } from "react-router-dom"
+
+export const Nav = ()=>{
+    <header style={{backgroundColor: "blue"}}>
+        <ul>
+            <li>
+            <Link to = "./">Home</Link>
+            </li>
+            <li>
+            <Link to = "./about">About</Link>
+            </li>
+            <li>
+                <Link to ="./career">Careers</Link>
+            </li>
+        </ul>
+    </header>
+}
+
+
+//****************************** Pages/ Home
+
+import { Nav } from "../Components/Navbar";
+import React from "react";
+
+const About = ()=>{
+    <>
+    <Nav/>
+    <h1> Hey Its me About</h1>
+    </>
+}
+
+export default About
