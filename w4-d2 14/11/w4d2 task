@@ -1,0 +1,174 @@
+//************************************************************************* password incompleted
+import React, { useState } from 'react'
+
+export default function Security() {
+    const [password,setPassword] = useState ("")
+    const[ show,setShow] = useState("")
+  return (
+    <div>security
+        <input 
+        onChange={(e)=>setPassword(e.target.value)}
+        value={password}
+        />
+        <button
+        onClick={()=>{
+            setShow(!show)
+        }}>
+            {show === false? "Show":"Hide"}
+        </button>
+    </div>
+  )
+}
+
+
+
+/********************************************************************************************************** promises
+
+//console.log("he its me");
+// setTimeOut function
+
+/*for (let index = 0; index < 5; index++) {
+      setTimeout(()=>{
+        console.log("hey its measdas");
+
+   },3000)
+    
+}
+
+//setInterval function
+
+ {
+    setInterval(() => {
+        console.log("hey its interval");
+    }, 3000);
+    
+}
+
+let myPromise = new Promise((resolve, reject) => {
+    setTimeout(function(){resolve("ALive")},3000)
+}).then(data=>console.log(data)).catch(e=>console.log(e))
+*/
+new Promise (function(myResolve,myReject){
+    // try starting
+    myReject("thats error")
+    //try ending
+})
+.then(function(data){
+    console.log("retured data from resolve " + data);
+})
+.catch(function(error){
+    console.log("error is" + error);
+})
+
+
+
+
+
+
+/********************************************************************************************** calculator
+
+import React, { useState } from "react";
+
+function Calculator(){
+const[a, setA]= useState()
+const[b, setB]= useState()
+const[result, setResult]= useState(0)
+
+function calculate(a,b,operation){
+    switch(operation){
+        case "+":
+        setResult(a+b)
+        case "-":
+            setResult(a-b)
+            case "*":
+                setResult(a*b)
+                case "/":
+                    setResult(a/b)
+                    case "%":
+                        setResult(ab)
+                                            }
+}
+    return(
+        <>
+        
+        <div className="text-5xl font-bold mb-10 mt-3 bg-purple-900 text-white flex justify-center">
+            Calculator
+        </div>
+        <form onSubmit={(e)=>{
+            e.preventDefault()
+        }}>
+        <div className="ML-6 flex justify-center">
+        <label className="ml-4"> Input 1</label>
+        <input type="number" className="border"
+         required
+         value={a}
+         onChange={(e)=>{
+             setA(Number(e.target.value))
+         }} />
+
+        <label className="ml-5"> Input 2</label>
+        <input type="number" className="border"
+        required
+        value={b}
+        onChange={(e)=>{  
+            setB(Number(e.target.value))
+        }}/>
+        </div>
+       <div className="m-6 flex gap-3  justify-center">
+        <button className="border rounded-full w-10 h-10 bg-purple-600 text-white"onClick={()=>{
+            setResult(a + b)
+         }}>
+            +
+        </button>
+        <button className="border rounded-full w-10 h-10 bg-purple-600 text-white"
+         onClick={()=>{
+            setResult(a - b)
+         }}>
+            -
+        </button>
+        <button className="border rounded-full w-10 h-10 bg-purple-600 text-white"
+        onClick={()=>{
+            setResult(a * b)
+         }}>
+            *
+        </button>
+        <button className="border rounded-full w-10 h-10 bg-purple-600 text-white"
+        onClick={()=>{
+            setResult(a / b)
+         }}>
+            /
+        </button>
+
+        <button className="border rounded-full w-10 h-10 bg-purple-600 text-white"
+        onClick={()=>{
+            setResult(a * b)
+         }}>
+            %
+        </button>
+
+       </div>
+       </form>
+       <div className="flex justify-center">
+       <div className="border w-64 h-64 flex gap-4"> Result
+        <span className="flex gap-4" >{result}</span>
+       </div>
+       </div>
+       
+        </>
+        
+    )
+   
+}
+export default Calculator
+
+
+/************************************************************ test.js
+
+fetch("https://jsonplaceholder.typicode.com/posts/1")
+.then(function(result){
+    return result.json();
+})
+.then((data)=>console.log(data))
+.catch(function(e){
+    console.log(e);
+})
