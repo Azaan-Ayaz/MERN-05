@@ -159,13 +159,17 @@ function calculate(a,b,operation){
         <span className="flex gap-4" >{result}</span>
        </div>
        </div>
-       
+       <div>
+        <button onClick={()=>{location.reload();
+      }}>Reset</button>
+       </div>
         </>
         
     )
    
 }
 export default Calculator
+
 
 
 /************************************************************ test.js
