@@ -9,6 +9,7 @@ export default function Security() {
         <input 
         onChange={(e)=>setPassword(e.target.value)}
         value={password}
+        type={show == true? "text": "password"}
         />
         <button
         onClick={()=>{
@@ -19,7 +20,6 @@ export default function Security() {
     </div>
   )
 }
-
 
 
 /********************************************************************************************************** promises
