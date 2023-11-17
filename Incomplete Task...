@@ -1,0 +1,84 @@
+import React, { useState } from "react";
+import Navbar from "../Components/Navbar";
+const Task = ()=>{
+    const [app , setApp] = useState([])
+    const [task,setTask] =useState(["fill,drrop "])
+    const[description, setDescription] = useState(["hsadjlhajsd"])
+    const [status,setStatus] = useState("Assigned")
+    
+    const removeTask = (taskId) => {
+        setApp([...app.filter((task) => {
+            return(task.Id !== taskId)})]);
+      };
+    /*const handleDelete = (deleteList)=>{
+        const newApp = app.filter((App)=>{
+            App !==deleteList 
+        })
+        setApp(newApp)
+        }
+    
+   /*function handleDelete(deleteList){
+    const deleteApp = app.filter((app)=>{
+        app !== deleteList
+    })
+    setApp(deleteApp)
+   }*/
+
+    return(
+        <>
+        <Navbar/>
+        <h1 className="flex justify-center">Task</h1>
+        <form className="flex flex-col justify-center"
+        onSubmit={(e)=>{
+            e.preventDefault()
+            setApp([...app,
+            {
+                task:task,
+                description: description,
+                status: status
+                
+            }]
+            )
+
+        }}>
+        <input type="text"
+        required
+        className="border ml-3"
+        value={task}
+        placeholder="Task Name"
+        onChange={(e)=>{
+            setTask(e.target.value)
+        }}/>
+        <input type="text"
+        value={description}
+        required
+        placeholder="Task Description"
+        onChange={(e)=>{
+            setDescription(e.target.value)
+        }} />
+        <select type="text"
+        required
+        value={status}
+        onChange={(event)=>{
+            setStatus(event.target.value)
+        }}>
+            <option value="Assigned">Assigned</option>
+            <option value="Not-Assigned">Not Assigned</option>
+        </select>
+        <button type="Submit">Submit</button>
+        </form>
+       {app.map((item)=>{
+            return(
+                <div key = {item}>
+                <span>{item.task}</span>
+                <span>{item.description}</span>
+                <span>{item.status}</span>
+                <button onClick={()=>{removeTask()}}>Delete</button>
+       </div>
+            )
+        })}
+           
+        </>
+    )
+}
+export default Task
