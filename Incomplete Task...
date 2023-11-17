@@ -1,14 +1,18 @@
-import React, { useState } from "react";
-import Navbar from "../Components/Navbar";
-const Task = ()=>{
-    const [app , setApp] = useState([])
-    const [task,setTask] =useState(["fill,drrop "])
-    const[description, setDescription] = useState(["hsadjlhajsd"])
-    const [status,setStatus] = useState("Assigned")
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+
+function App() {
+  //const [count, setCount] = useState(0)
+  const [app , setApp] = useState([])
+    const [task,setTask] =useState([""])
+    const[description, setDescription] = useState([""])
+    const [status,setStatus] = useState("")
     
-    const removeTask = (taskId) => {
+    const removeTask = (taskObject) => {
         setApp([...app.filter((task) => {
-            return(task.Id !== taskId)})]);
+            return(task != taskObject)})]);
       };
     /*const handleDelete = (deleteList)=>{
         const newApp = app.filter((App)=>{
@@ -24,10 +28,9 @@ const Task = ()=>{
     setApp(deleteApp)
    }*/
 
-    return(
-        <>
-        <Navbar/>
-        <h1 className="flex justify-center">Task</h1>
+  return (
+    <>
+      <h1 className="flex justify-center">Task</h1>
         <form className="flex flex-col justify-center"
         onSubmit={(e)=>{
             e.preventDefault()
@@ -73,7 +76,7 @@ const Task = ()=>{
                 <span>{item.task}</span>
                 <span>{item.description}</span>
                 <span>{item.status}</span>
-                <button onClick={()=>{removeTask()}}>Delete</button>
+                <button onClick={()=>{removeTask(item)}}>Delete</button>
        </div>
             )
         })}
@@ -81,4 +84,6 @@ const Task = ()=>{
         </>
     )
 }
-export default Task
+export default App
+
+  
