@@ -8,8 +8,9 @@ function App() {
   const [app , setApp] = useState([])
     const [task,setTask] =useState([""])
     const[description, setDescription] = useState([""])
-    const [status,setStatus] = useState("")
-    
+    const [status,setStatus] = useState("Assigned")
+    const [date,newDate]= useState(Date)
+
     const removeTask = (taskObject) => {
         setApp([...app.filter((task) => {
             return(task != taskObject)})]);
@@ -38,8 +39,8 @@ function App() {
             {
                 task:task,
                 description: description,
-                status: status
-                
+                status: status,
+                date : date
             }]
             )
 
@@ -76,6 +77,7 @@ function App() {
                 <span>{item.task}</span>
                 <span>{item.description}</span>
                 <span>{item.status}</span>
+                <span>{item.date}</span>
                 <button onClick={()=>{removeTask(item)}}>Delete</button>
        </div>
             )
