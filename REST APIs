@@ -1,0 +1,95 @@
+const express = require("express")
+const  mongoose = require("mongoose")
+const app = express()
+
+app.use(express.json())  // enables body reading 
+
+const router = express.Router() // 
+app.use(router) // 
+
+
+
+async function main() {
+    await mongoose.connect("mongodb+srv://azaan:azaan@cluster0.f6vhiyf.mongodb.net/").then(result => console.log("connection created"))
+
+  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
+}
+main().catch(err => console.log(err)); // 
+
+
+
+
+
+const TodoSchema = new mongoose.Schema({
+    text:{type: String},
+    status: {type: Boolean}
+})
+const TodoModel = mongoose.model("Todos",TodoSchema)
+
+
+
+// router.post('/todo', async(req,res)=>{
+//     const todos = await TodoModel.find({});
+//     res.json(todos)
+// })
+
+
+ // for get database
+router.get('/todo', async(req,res)=>{         
+    const todos = await TodoModel.find()
+    res.json(todos)
+})
+
+// for all true 
+router.get('/todo/completed/task', async(req,res)=>{  
+    const todo  =  await TodoModel.find({status : true})
+    res.json(todo)
+})
+
+// for all false
+router.get('/todo/incompleted/task', async(req,res)=>{  
+    const todo  =  await TodoModel.find({status : false})
+    res.json(todo)
+})
+
+
+ // for get database by ID
+router.get('/todo/:id', async(req,res)=>{  
+    const id = req.params.id    
+    const todo  =  await TodoModel.findById(id)
+    res.json(todo)
+})
+
+
+
+// for post in database
+router.post('/todo' , (req,res) => {
+    TodoModel.create({text:req.body.text , status:req.body.status}).then(res.json({
+        message: "inserted"
+    }))
+})
+
+
+// f0r delete
+router.delete('/todo/:id',(req,res)=>{
+    const id = req.params.id
+    TodoModel.findByIdAndDelete(id)
+    .then(res.json('deleted'))
+})
+
+router.put('/todo',(req,res)=>{
+    const {id,text,status} = req.body
+    TodoModel.findByIdAndUpdate(id,{
+        text: text, status: status
+    })
+    .then(res.json('updated'))
+})
+
+router.all("/",(req,res)=>{
+    res.json(`we are alive`)
+})
+
+const PORT = 5000
+app.listen(PORT,()=>{
+    console.log(`Server is runnig on Port ${PORT}`);
+})
