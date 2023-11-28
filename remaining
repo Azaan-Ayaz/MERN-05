@@ -1,0 +1,40 @@
+import React from "react";
+import { useState } from "react";
+import axios from "axios";
+const Form = () => {
+    const [text,setText] = useState("")
+    const[status,setStatus] = useState(false);
+return(
+    <>
+    <div>
+        <form onSubmit={async(e)=>{
+            e.preventDefault()
+            const
+        }}>
+            <input type="text"
+            value={text}
+            required
+            onChange={(e)=>{
+                setText(e.target.value)
+            }} />
+            <label htmlFor="true">True</label>
+            <input onClick={()=>{setStatus(true)}}
+            type="radio"
+            name="status" 
+            id="true"
+            value={true}/>
+
+<label htmlFor="true">False</label>
+            <input onClick={()=>{setStatus(true)}}
+            type="radio"
+            name="status" 
+            id="false"
+            value={false}/>
+            <button type="Submit">Submit</button>
+        </form>
+    </div>
+    </>
+)
+}
+export default Form
+ 
